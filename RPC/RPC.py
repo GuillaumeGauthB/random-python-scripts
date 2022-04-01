@@ -4,7 +4,7 @@ import json
 global scoreJoueur
 scoreJoueur = 0
 
-def write_json(new_data, filename='JSON/rochePapierCiseauxLeaderboard.json'):
+def write_json(new_data, filename='./rochePapierCiseauxLeaderboard.json'):
     with open(filename,'r+') as file:
           # First we load existing data into a dict.
         file_data = json.load(file)
@@ -61,7 +61,7 @@ def RejouerRPC():
 			valeursNouvelles = {"nom":nomJoueur, "score": scoreJoueur}
 			write_json(valeursNouvelles)
 			print('LEADERBOARD')
-			item = json.load(open("JSON/rochePapierCiseauxLeaderboard.json"))
+			item = json.load(open("./rochePapierCiseauxLeaderboard.json"))
 			for i in item['joueurs']:
 				print(i)
 		# S'il ne veut pas, le faire partir

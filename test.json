@@ -1,0 +1,34 @@
+{
+    "emp_details": [
+        {
+            "emp_name": "Nikhil",
+            "email": "nikhil@geeksforgeeks.org",
+            "job_profile": "Full Time"
+        },
+        {
+            "emp_name": "Nikhil",
+            "email": "nikhil@geeksforgeeks.org",
+            "job_profile": "Full Time"
+        },
+        {
+            "emp_name": "Nikhil",
+            "email": "nikhil@geeksforgeeks.org",
+            "job_profile": "Full Time"
+        },
+        {
+            "emp_name": "Nikhil",
+            "email": "nikhil@geeksforgeeks.org",
+            "job_profile": "Full Time"
+        },
+        {
+            "emp_name": "Nikhil",
+            "email": "nikhil@geeksforgeeks.org",
+            "job_profile": "Full Time"
+        },
+        {
+            "emp_name": "Nikhil",
+            "email": "nikhil@geeksforgeeks.org",
+            "job_profile": "Full Time"
+        }
+    ]
+}

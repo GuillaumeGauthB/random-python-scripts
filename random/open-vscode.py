@@ -8,7 +8,6 @@ applicationDirectory=os.path.expanduser('~/Logiciels')
 
 listDirectories = []
 notWanted = []
-# toOpenLocation=""
 
 for d in os.listdir(rootDirectory):
 	# print(d)
@@ -22,6 +21,7 @@ toOpen = input("Class to open: ")
 print(toOpen)
 if "4w4" in toOpen:
 	toOpenLocation="%s\\xampp\\htdocs\\wordpress"%applicationDirectory
+	subprocess.Popen("%s\\xampp\\xampp-control.exe"%applicationDirectory)
 elif "iwra" in toOpen:
 	choice=input("tp, class: ")
 	if "tp" in choice:
@@ -32,7 +32,7 @@ elif "iwra" in toOpen:
 		else:
 			toOpenLocation="%s/%s/evaluations/tp"%(rootDirectory, toOpen)
 	elif "class" in choice:
-		print(os.listdir(os.path.expanduser("%s/%s/cours/tp"%(rootDirectory, toOpen))))
+		print(os.listdir(os.path.expanduser("%s/%s/cours"%(rootDirectory, toOpen))))
 		choiceEx=input("tt, name: ")
 		if "tt" in choiceEx:
 			toOpenLocation="%s/%s/cours"%(rootDirectory, toOpen)

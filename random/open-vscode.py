@@ -2,7 +2,9 @@
 
 import os.path
 import subprocess
+import psutil
 
+isXamppOpen="xampp-control.exe" in (i.name() for i in psutil.process_iter())
 rootDirectory=os.path.expanduser('~/ecole')
 applicationDirectory=os.path.expanduser('~/Logiciels')
 
@@ -21,7 +23,14 @@ toOpen = input("Class to open: ")
 print(toOpen)
 if "4w4" in toOpen:
 	toOpenLocation="%s\\xampp\\htdocs\\wordpress"%applicationDirectory
-	subprocess.Popen("%s\\xampp\\xampp-control.exe"%applicationDirectory)
+	if isXamppOpen is True:
+		print("xampp-control is open.\nNo need to open it again")
+	else:
+		print("xampp-control is not open.\nIt'd probably be good to open it\nBut i'm still scared after it killed my installation")
+		# THIS IS EVIL
+		# THIS BREAK XAMPP
+		# STAY BACK DEMON
+		# subprocess.Popen("%s\\xampp-2\\xampp-control.exe"%applicationDirectory)
 elif "iwra" in toOpen:
 	choice=input("tp, class: ")
 	if "tp" in choice:

@@ -1,12 +1,19 @@
 # Script to open school folders on vscode cuz im lazy and dont want to do it myself
 
+import platform
 import os.path
 import subprocess
 import psutil
 
+if 'Windows' in platform.system():
+	rootDirectory=os.path.expanduser('~/ecole')
+	applicationDirectory=os.path.expanduser('~/Logiciels')
+else:
+	user=subprocess.run('whoami')
+	print(user)
+	rootDirectory=os.path.expanduser('~/sync/ecole')
+
 isXamppOpen="xampp-control.exe" in (i.name() for i in psutil.process_iter())
-rootDirectory=os.path.expanduser('~/ecole')
-applicationDirectory=os.path.expanduser('~/Logiciels')
 
 listDirectories = []
 notWanted = []
@@ -21,16 +28,10 @@ for d in os.listdir(rootDirectory):
 print("Which class: \n", listDirectories)
 toOpen = input("Class to open: ")
 print(toOpen)
+
+
 if "4w4" in toOpen:
 	toOpenLocation="%s\\xampp\\htdocs\\wordpress"%applicationDirectory
-	if isXamppOpen is True:
-		print("xampp-control is open.\nNo need to open it again")
-	else:
-		print("xampp-control is not open.\nIt'd probably be good to open it\nBut i'm still scared after it killed my installation")
-		# THIS IS EVIL
-		# THIS BREAK XAMPP
-		# STAY BACK DEMON
-		# subprocess.Popen("%s\\xampp-2\\xampp-control.exe"%applicationDirectory)
 elif "iwra" in toOpen:
 	choice=input("tp, class: ")
 	if "tp" in choice:
@@ -53,5 +54,22 @@ elif "iwra" in toOpen:
 else:
 	toOpenLocation="%s/%s"%(rootDirectory, toOpen)
 
-subprocess.Popen("%s\\VSCode1591\\Code.exe %s"%(applicationDirectory, toOpenLocation))
+print(toOpenLocation)
 
+if 'Windows' in platform.system():
+	if '4w4' in toOpen:
+		if isXamppOpen is True:
+			print("xampp-control is open.\nNo need to open it again")
+		else:
+			print("xampp-control is not open.\nIt'd probably be good to open it\nBut i'm still scared after it killed my installation")
+			# THIS IS EVIL
+			# THIS BREAK XAMPP
+			# STAY BACK DEMON
+			# subprocess.Popen("%s\\xampp-2\\xampp-control.exe"%applicationDirectory)
+	
+	subprocess.Popen("%s\\VSCode1591\\Code.exe %s"%(applicationDirectory, toOpenLocation))
+else:
+	print("code %s"%toOpenLocation)
+	# subprocess.Popen("code %s"%toOpenLocation)
+	os.system("code %s"%toOpenLocation)
+	# subprocess.run("code %s"%toOpenLocation)
